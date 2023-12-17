@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Code Snippets</title>
+</head>
+<body>
+
+<h1>#1A] Code to print the sum and the average of 2 numbers</h1>
+<pre><code>
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+Sum = num1 + num2
+print(f"Sum of two numbers is {Sum}")
+Avg = Sum / 2
+print(f"Average of two numbers is {Avg}")
+</code></pre>
+
+<h1>#1B]Code to print minimum and maximum of 2 numbers</h1>
+<pre><code>
+A = int(input("Enter a number: "))
+B = int(input("Enter the second number: "))
+if A > B:
+    print("A is greater than B")
+else:
+    print("B is greater than A")
+</code></pre>
+
+<h1>#1C]Code to check whether a positive integer is prime or not prime</h1>
+<pre><code>
+num = int(input("Enter a number: "))
+if num < 2:
+    print("Not Prime")
+else:
+    for i in range(2, num):
+        if num % i == 0:
+            print("Not Prime")
+            break;
+    else:
+        print("Prime")
+</code></pre>
+
+<h1>#2A]Code to print compound and simple interest</h1>
+<pre><code>
+p = float(input("Enter the principal value: "))
+r = float(input("Enter the rate: "))
+t = float(input("Enter time provided: "))
+SI = (p * r * t) / 100
+print(f"Simple interest - {SI}")
+CI = p * ((1 + r / 100) ** t - 1)
+print(f"Compound interest - {CI}")
+</code></pre>
+
+<h1>#2B]Code to find the ASCII value of a character entered by the user</h1>
+<pre><code>
+character = input("Enter a character: ")
+if len(character) == 1:
+    ascii = ord(character)
+    print("ASCII value of", character, "is", ascii)
+else:
+    print("Please enter a single character")
+</code></pre>
+
+<h1>#5A]Code to display all prime numbers between 1-100 using functions</h1>
+<pre><code>
+def is_prime(num):
+    if num <= 1:
+       return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def display_prime():
+    print("Prime numbers between 1-100")
+    for number in range(1, 101):
+        if is_prime(number):
+            print(number, end=" ")
+display_prime()
+</code></pre>
+
+<h1>#9A]Code to demonstrate the concept of a class and an object</h1>
+<pre><code>
+class Instrument:
+    attr1 = "guitar"
+    attr2 = "piano"
+
+    def fun(self):
+        print("I play", self.attr1)
+        print("I play", self.attr2)
+
+play = Instrument()
+print(play.attr1)
+play.fun()
+</code></pre>
+
+<h1>#9B]Code to demonstrate the concept of method and message passing</h1>
+<pre><code>
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def display_info(self):
+        print(f"Name: {self.name}")
+
+    def bark(self):
+        print(f"{self.name} says: Woof! Woof!")
+
+my_dog = Dog(input("Enter your dog's name: "))
+
+my_dog.display_info()
+my_dog.bark()
+</code></pre>
+
+<h1>#9C]Code to demonstrate the concept of encapsulation and access specifiers</h1>
+<pre><code>
+class SecretAgent:
+    def __init__(self, name, code_name, mission):
+        self.name = name        # public
+        self._code_name = code_name  # protected
+        self.__mission = mission  # private
+
+    def introduce(self):
+        print(f"Agent {self.name} here! My code name is {self._code_name}. Shh, it's a secret!")
+
+    def get_mission(self):
+        print(f"Mission: {self.__mission}")
+
+agent = SecretAgent("James", "007", "Save the world")
+
+print(f"Agent {agent.name} reporting in!")
+
+print(f"My code name is {agent._code_name}")
+
+# The next line will throw an error as '__mission' is private
+# print(f"My mission is {agent.__mission}")
+
+agent.introduce()
+agent.get_mission()
+</code></pre>
+
+<h1>#10A]Code to demonstrate the concept of inheritance and polymorphism</h1>
+<pre><code>
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def make_sound(self):
+        pass
+
+class Dog(Animal):
+    def make_sound(self):
+        print(f"{self.name} says: Woof! Woof!")
+
+class Cat(Animal):
+    def make_sound(self):
+        print(f"{self.name} says: Meow!")
+
+my_dog = Dog("Coco")
+my_cat = Cat("Bob")
+
+my_dog.make_sound()
+my_cat.make_sound()
+</code></pre>
+
+<h1>#4A]Code to print even and odd numbers from 1 -100</h1>
+<pre><code>
+for i in range(2, 101, 2):
+    print(i)
+
+for i in range(1, 100, 2):
+    print(i)
+</code></pre>
+
+<h1>#4B]Code to display the sum of n numbers using do while loop</h1>
+<pre><code>
+sum = 0
+i = 0
+n = int(input("Enter the number of elements: "))
+while i < n:
+    num = int(input(f"Enter number {i + 1}: "))
+    sum += num
+    i += 1
+print(f"Sum is = {sum}")
+</code></pre>
+
+<h1>#5B]Code to display the sum of n numbers using concept of loop and function</h1>
+<pre><code>
+def calculate_sum(n):
+    sum = 0
+    for i in range(n):
+        num = int(input(f"Enter number {i + 1}: "))
+        sum += num
+    return sum
+
+n = int(input("Enter the number of elements: "))
+print(f"Sum is = {calculate_sum(n)}")
+</code></pre>
+
+<h1>#8B-Code to reverse a string using recursion</h1>
+<p>This code demonstrates how to reverse a string using recursion:</p>
+<pre><code>
+def reverse(string):
+    if len(string) == 0:
+        return
+    temp = string[0]
+    reverse(string[1:])
+    print(temp, end=" ")
+
+string = input("Enter a string: ")
+reverse(string)
+</code></pre>
+
+<h1>#11A-</h1>
+<pre><code>
+file_name = input("Enter the file name: ")
+file = open(file_name, 'w')
+
+text = input("Enter the text to write: ")
+file.write(text)
+
+file.close()
+print("Your text has been added to the file successfully.")
+</code></pre>
+
+<h1>#11 C-</h1>
+<pre><code>
+binary_data = b'hello, this is binary data'
+file_name = "binary_file.data"
+
+with open(file_name, 'wb') as file:
+    file.write(binary_data)
+    file.write(b' Now the file has more content!')
+
+print(f"Data has been written to the binary file: {file_name}")
+</code></pre>
+
+<h1>#12A-</h1>
+<pre><code>
+def student_details():
+    first_name = input("Enter student's name: ")
+    last_name = input("Enter student's last name: ")
+
+    file_name = "students.txt"
+
+    with open(file_name, "a") as file:
+        file.write(f"{first_name} {last_name}\n")
+
+    print(f"Student details saved successfully as {first_name} {last_name}")
+
+student_details()
+</code></pre>
+
+<h1>#12B-</h1>
+<pre><code>
+def student_details():
+    num_students = int(input("Enter the number of students: "))
+    file_name = "student_records.txt"
+
+    with open(file_name, "w") as file:
+        for _ in range(num_students):
+            name = input("Enter student's name: ")
+            marks = float(input("Enter student's marks: "))
+            file.write(f"{name}: {marks}\n")
+
+    print(f"Student details saved successfully in {file_name}")
+
+student_details()
+</code></pre>
+
+</body>
+</html>
